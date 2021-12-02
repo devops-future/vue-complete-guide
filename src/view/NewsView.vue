@@ -1,8 +1,24 @@
 <template>
-  <h1>NewsView</h1>
+  <div>
+    <div v-for="user in users" v-bind:key="user">{{ user.title }}</div>
+  </div>
 </template>
 <script>
-    export default {
-        name: 'NewsView',
+  import { fetchNewsList } from "../api/index.js";
+
+  export default {
+    data() {
+      return {
+        users: []
+      }
+    },
+    created() {
+      fetchNewsList()
+              .then(response => this.users = response.data)
+              .catch();
     }
+  }
 </script>
+
+<style>
+</style>

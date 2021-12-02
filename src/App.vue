@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <tool-bar></tool-bar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ToolBar from './components/ToolBar.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    ToolBar,
   },
   methods: {
     fetchData() {
@@ -22,6 +21,10 @@ export default {
 </script>
 
 <style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

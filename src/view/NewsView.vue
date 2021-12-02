@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="user in users" v-bind:key="user">{{ user.title }}</div>
+    <div v-for="news in newses" v-bind:key="news.id">{{ news.title }}</div>
   </div>
 </template>
 <script>
@@ -9,12 +9,12 @@
   export default {
     data() {
       return {
-        users: []
+        newses: []
       }
     },
     created() {
       fetchNewsList()
-              .then(response => this.users = response.data)
+              .then(response => this.newses = response.data)
               .catch();
     }
   }

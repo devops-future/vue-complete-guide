@@ -1,4 +1,4 @@
-# Vue.js Complete Guide
+# Vue News
 
 ## Project setup
 ```

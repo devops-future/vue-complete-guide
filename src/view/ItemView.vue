@@ -1,30 +1,31 @@
 <template>
   <div>
-    <selection>
-      <div class="user-container">
-        <div>
-          <i class="fas fa-user"></i>
-        </div>
-        <div class="user-description">
-          <router-link :to="`/user/${fetchedItem.user}`">
-            {{ fetchedItem.user }}
-          </router-link>
-          <div class="time">
-            {{ fetchedItem.time_ago }}
-          </div>
-        </div>
-      </div>
+    <section>
+      <user-profile :info="fetchedItem">
+        <router-link slot="username" :to="`/user/${fetchedItem.user}`">
+          {{ fetchedItem.user }}
+        </router-link>
+        <span slot="time">{{ 'Posted ' + fetchedItem.time_ago }}, </span>
+        <span slot="karma">{{ fetchedItem.points }}</span>
+      </user-profile>
+    </section>
+    <section>
       <h2>{{ fetchedItem.title }}</h2>
-    </selection>
-    <selection>
+    </section>
+    <section>
       <div v-html="fetchedItem.content"></div>
-    </selection>
+    </section>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex';
+  import UserProfile from "../components/UserProfile";
+
   export default {
+    components: {
+      UserProfile,
+    },
     computed: {
       ...mapGetters([
         'fetchedItem'

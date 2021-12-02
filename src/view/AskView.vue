@@ -5,7 +5,8 @@
                 {{ item.title }}
             </a>
             <small>
-                {{ item.time_ago }} by {{ item.user }}
+                {{ item.time_ago }} by
+                <router-link v-bind:to="`/item/${item.id}`">{{ item.user }}</router-link>
             </small>
         </div>
     </div>

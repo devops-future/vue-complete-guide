@@ -12,9 +12,6 @@ export const store = new Vuex.Store({
     item: {}
   },
   getters: {
-    fetchedAsk(state) {
-      return state.ask;
-    },
     fetchedItem(state) {
       return state.item;
     }
